@@ -1068,6 +1068,13 @@ namespace Thirdweb
             this.authOptions = authOptions ?? new AuthOptions(authProvider: AuthProvider.EmailOTP, jwtOrPayload: null, encryptionKey: null);
             this.smartWalletAccountOverride = smartWalletAccountOverride;
         }
+        public override string ToString()
+        {
+            return $"Provider: {provider}, ChainID: {chainId}, Password: {password}, Email: {email}, " +
+                   $"Phone Number: {phoneNumber}, Personal Wallet: {personalWallet}, " +
+                   $"Auth Options: {authOptions}, Smart Wallet Account Override: {smartWalletAccountOverride}";
+        }
+
     }
 
     /// <summary>

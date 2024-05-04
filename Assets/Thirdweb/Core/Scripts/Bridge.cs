@@ -92,6 +92,10 @@ namespace Thirdweb
             var task = new TaskCompletionSource<string>();
             string taskId = Guid.NewGuid().ToString();
             taskMap[taskId] = task;
+
+            Debug.Log("------- Start Connect -------");
+            Debug.Log(walletConnection.ToString());
+
 #if UNITY_WEBGL
             ThirdwebConnect(
                 taskId, 
@@ -107,6 +111,7 @@ namespace Thirdweb
             );
 #endif
             string result = await task.Task;
+            Debug.Log("------- End Connect -------");
             return result;
         }
 
