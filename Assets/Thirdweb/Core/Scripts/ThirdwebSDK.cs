@@ -271,8 +271,6 @@ namespace Thirdweb
             if (options.clientId != null && new System.Uri(rpc).Host.EndsWith(".thirdweb.com") && !rpc.Contains("bundleId="))
                 rpc = rpc.AppendBundleIdQueryParam();
 
-            ThirdwebDebug.Log(options);
-
 
             if (Utils.IsWebGLBuild())
             {
