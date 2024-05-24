@@ -178,7 +178,7 @@ namespace Thirdweb.Examples
         {
             ThirdwebDebug.Log($"Connecting to {wc.provider}...");
 
-            onConnectionRequested.Invoke(wc);
+            //onConnectionRequested.Invoke(wc);
 
             await new WaitForSeconds(0.5f);
 
