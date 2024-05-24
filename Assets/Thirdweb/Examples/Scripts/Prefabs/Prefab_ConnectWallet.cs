@@ -180,7 +180,7 @@ namespace Thirdweb.Examples
 
             //onConnectionRequested.Invoke(wc);
 
-            await new WaitForSeconds(0.5f);
+            //await new WaitForSeconds(0.5f);
 
             try
             {
