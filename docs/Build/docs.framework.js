@@ -18021,7 +18021,7 @@ var unityFramework = (() => {
             }
 
             function _ThirdwebInitialize(chain, options) {
-                console.log("Var 0.01");
+                console.log("Var 0.02");
                 window.bridge.initialize(UTF8ToString(chain), UTF8ToString(options))
             }
 
