@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using System.Numerics;
 using RotaryHeart.Lib.SerializableDictionary;
 using Org.BouncyCastle.Bcpg;
+using System.Threading.Tasks;
+
 
 namespace Thirdweb.Examples
 {
@@ -223,12 +225,7 @@ namespace Thirdweb.Examples
             currentNetworkText.text = PrettifyNetwork(_currentChainData.identifier);
 
 
-            //var isConnected = await ThirdwebManager.Instance.SDK.Wallet.IsConnected();
-            //if (isConnected)
-            //{
-            //    string signature = await ThirdwebManager.Instance.SDK.Wallet.Sign("Test");
-            //    Debug.Log("Signature : " + signature);
-            //}
+            await Sign();
 
             onConnected.Invoke(_address);
         }
@@ -294,6 +291,24 @@ namespace Thirdweb.Examples
         {
             var replaced = networkIdentifier.Replace("-", " ");
             return replaced.Substring(0, 1).ToUpper() + replaced.Substring(1);
+        }
+
+        private async Task Sign()
+        {
+            for(int i=0;i<100; i++)
+            {
+                try
+                {
+                    string signature = await ThirdwebManager.Instance.SDK.Wallet.Sign("Test");
+                    Debug.Log("Signature : " + signature);
+                    return;
+                }
+                catch (System.Exception e)
+                {
+                    ThirdwebDebug.LogWarning($"Failed to sign {e}");
+                    await Task.Delay(500);
+                }
+            }
         }
     }
 }
