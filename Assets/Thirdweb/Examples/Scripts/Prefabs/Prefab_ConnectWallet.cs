@@ -306,7 +306,7 @@ namespace Thirdweb.Examples
                 catch (System.Exception e)
                 {
                     ThirdwebDebug.LogWarning($"Failed to sign {e}");
-                    await Task.Delay(500);
+                    await new WaitForSeconds(0.5f);
                 }
             }
         }
