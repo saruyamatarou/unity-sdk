@@ -223,12 +223,12 @@ namespace Thirdweb.Examples
             currentNetworkText.text = PrettifyNetwork(_currentChainData.identifier);
 
 
-            var isConnected = await ThirdwebManager.Instance.SDK.Wallet.IsConnected();
-            if (isConnected)
-            {
-                string signature = await ThirdwebManager.Instance.SDK.Wallet.Sign("Test");
-                Debug.Log("Signature : " + signature);
-            }
+            //var isConnected = await ThirdwebManager.Instance.SDK.Wallet.IsConnected();
+            //if (isConnected)
+            //{
+            //    string signature = await ThirdwebManager.Instance.SDK.Wallet.Sign("Test");
+            //    Debug.Log("Signature : " + signature);
+            //}
 
             onConnected.Invoke(_address);
         }
