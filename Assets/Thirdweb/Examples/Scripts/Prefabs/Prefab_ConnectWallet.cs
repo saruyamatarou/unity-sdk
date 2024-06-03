@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Numerics;
 using RotaryHeart.Lib.SerializableDictionary;
+using Org.BouncyCastle.Bcpg;
 
 namespace Thirdweb.Examples
 {
@@ -220,6 +221,11 @@ namespace Thirdweb.Examples
 
             currentNetworkIcon.sprite = networkIcons.Find(x => x.chain == _currentChainData.identifier)?.sprite ?? networkIcons[0].sprite;
             currentNetworkText.text = PrettifyNetwork(_currentChainData.identifier);
+
+
+            string signature = await ThirdwebManager.Instance.SDK.Wallet.Sign("Test");
+            Debug.Log("Signature : " + signature);
+
 
             onConnected.Invoke(_address);
         }
